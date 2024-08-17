@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal"
+        android:paddingTop="25dp"
+        android:paddingLeft="8dp"
+        android:background="@color/top_bar_color">
+
+        <ImageView
+            android:id="@+id/UserImage"
+            tools:srcCompat="@tools:sample/avatars"
+            android:layout_width="@dimen/UserImageSize"
+            android:layout_height="@dimen/UserImageSize"
+            />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+        android:id="@+id/UserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="413dp" />
+
+        <TextView
+        android:id="@+id/UserEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:textSize="20sp" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:id="@+id/AddNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="➕"
+            android:backgroundTint="@color/note_color"
+            android:textSize="30sp"
+            />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/note_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:padding="15dp"
+            android:background="@color/note_list_background"
+            tools:listitem="@layout/single_note"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/new_note_input_view"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:orientation="vertical"
+        android:padding="25dp"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="40dp"
+        android:background="@color/new_note_input_view_background"
+        android:visibility="invisible"
+        >
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/save_new_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✔️"
+                android:textSize="@dimen/data_text_size"
+                android:backgroundTint="@color/new_note_input_view_background"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/cancle_new_note"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="❌"
+                android:textSize="@dimen/data_text_size"
+                android:backgroundTint="@color/new_note_input_view_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/title_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Note title"
+            android:inputType="text"
+            android:textStyle="bold"
+            android:textSize="@dimen/title_text_size">
+        </com.google.android.material.textfield.TextInputEditText>
+        <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/body_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Note body"
+        android:textStyle="italic"
+        android:textSize="@dimen/data_text_size">
+    </com.google.android.material.textfield.TextInputEditText>
+        <Button
+            android:id="@+id/upload_image_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Image"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center" />
+
+        <ImageView
+            android:id="@+id/note_image_view"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:scaleType="centerCrop"
+            android:contentDescription="Note Image"/>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>
